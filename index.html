@@ -83,16 +83,24 @@ nav{
   border-bottom:1px solid var(--border);
   transition:padding 0.3s;
 }
-.nav-logo{
-  font-family:var(--font-mono);font-size:0.78rem;
-  font-weight:700;letter-spacing:0.15em;
-  color:var(--cyan);text-shadow:0 0 10px rgba(255,232,31,0.4);
-  display:flex;align-items:center;gap:0.6rem;
+.nav-brand{
+  display:flex;align-items:center;gap:1rem;
+  min-width:0;
 }
-.nav-logo::before{
-  content:'';width:8px;height:8px;background:var(--cyan);
-  border-radius:50%;box-shadow:0 0 10px var(--cyan);
-  animation:pulse 2s infinite;
+.brand-name{
+  font-family:var(--font-display);font-weight:800;
+  font-size:1.05rem;color:var(--cyan);
+  letter-spacing:-0.01em;text-decoration:none;
+  text-shadow:0 0 14px rgba(255,232,31,0.3);
+  transition:text-shadow 0.2s;
+}
+.brand-name:hover{text-shadow:0 0 20px rgba(255,232,31,0.55);}
+.brand-time{
+  font-family:var(--font-mono);font-size:0.68rem;
+  color:var(--muted);letter-spacing:0.1em;
+  padding-left:1rem;
+  border-left:1px solid var(--border);
+  white-space:nowrap;
 }
 @keyframes pulse{50%{opacity:0.4;transform:scale(0.8);}}
 .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center;}
@@ -817,6 +825,9 @@ footer{
   .gb-row{grid-template-columns:1fr;}
   .section-head h2{font-size:1.3rem;}
 }
+@media (max-width: 600px){
+  .brand-time{display:none;}
+}
 @media (max-width: 480px){
   section{padding:2.5rem 1rem;}
   nav{padding:0.7rem 1rem;}
@@ -840,6 +851,10 @@ footer{
 
 <!-- Nav -->
 <nav>
+  <div class="nav-brand">
+    <a href="#hero" class="brand-name">Ayushi</a>
+    <span class="brand-time" id="nav-time">———</span>
+  </div>
   <ul class="nav-links" id="nav-links">
     <li><a href="#experience">Research</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -1317,6 +1332,27 @@ footer{
 
   window.addEventListener('resize', resize);
   resize(); init(); draw();
+})();
+
+/* ============================================================
+   Nav clock (date + time, top-left)
+   ============================================================ */
+(function(){
+  const el = document.getElementById('nav-time');
+  if (!el) return;
+  const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  function tick(){
+    const d = new Date();
+    const day = days[d.getDay()];
+    const date = String(d.getDate()).padStart(2, '0');
+    const month = months[d.getMonth()];
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    el.textContent = `${day} ${date} ${month} · ${hh}:${mm}`;
+  }
+  tick();
+  setInterval(tick, 20000);
 })();
 
 /* ============================================================
