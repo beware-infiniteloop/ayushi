@@ -73,20 +73,6 @@ body::after{
   z-index:0;display:block;
 }
 
-/* === HUD (top-right overlay) === */
-#hud{
-  position:fixed;top:14px;right:16px;z-index:50;
-  font-family:var(--font-mono);font-size:10px;
-  letter-spacing:0.08em;color:var(--cyan);
-  text-align:right;line-height:1.5;
-  text-shadow:0 0 8px rgba(95,211,255,0.4);
-  pointer-events:none;
-}
-#hud .hud-label{color:var(--muted);}
-#hud .hud-val{color:var(--cyan-bright);}
-#hud .blink{animation:blink 1.4s infinite;}
-@keyframes blink{50%{opacity:0.2;}}
-
 /* === Nav === */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:40;
@@ -161,19 +147,21 @@ section{
   display:flex;flex-direction:column;justify-content:center;
 }
 .hero-chip{
-  display:inline-flex;align-items:center;gap:0.5rem;
+  display:inline-flex;align-items:center;gap:0.55rem;
   font-family:var(--font-mono);font-size:0.72rem;
-  color:var(--green);letter-spacing:0.18em;
-  padding:0.3rem 0.8rem;
-  border:1px solid rgba(77,240,161,0.3);border-radius:100px;
-  background:rgba(77,240,161,0.04);
+  color:var(--gold);letter-spacing:0.22em;
+  padding:0.35rem 0.9rem;
+  border:1px solid rgba(245,200,75,0.28);border-radius:100px;
+  background:rgba(245,200,75,0.04);
   margin-bottom:1.5rem;
+  font-style:italic;
   animation:fadeUp 0.6s 0.1s both;
+  text-shadow:0 0 12px rgba(245,200,75,0.25);
 }
 .hero-chip::before{
-  content:'';width:6px;height:6px;background:var(--green);
-  border-radius:50%;box-shadow:0 0 8px var(--green);
-  animation:pulse 1.6s infinite;
+  content:'✦';color:var(--gold);font-style:normal;
+  text-shadow:0 0 8px var(--gold);
+  animation:pulse 2.4s infinite;
 }
 #hero h1{
   font-family:var(--font-display);font-weight:800;
@@ -286,113 +274,6 @@ section{
   animation:scroll-pulse 1.8s ease-in-out infinite;
 }
 @keyframes scroll-pulse{0%,100%{transform:scaleY(0.3);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}}
-
-/* === STATS === */
-#stats{padding-top:2rem;padding-bottom:2rem;}
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  border-radius:4px;
-  overflow:hidden;
-  position:relative;
-}
-.stats-grid::before{
-  content:'';position:absolute;top:-1px;left:-1px;right:-1px;bottom:-1px;
-  background:linear-gradient(135deg, rgba(95,211,255,0.4), transparent, rgba(95,211,255,0.2));
-  z-index:-1;border-radius:4px;
-  pointer-events:none;
-}
-.stat{
-  background:var(--bg2);
-  padding:1.6rem 1.2rem;
-  text-align:center;
-  position:relative;
-  transition:all 0.3s;
-}
-.stat:hover{background:#0b1626;}
-.stat:hover .stat-num{text-shadow:0 0 20px rgba(95,211,255,0.5);}
-.stat-num{
-  font-family:var(--font-display);font-weight:800;
-  font-size:clamp(1.8rem, 4vw, 2.6rem);
-  color:var(--cyan-bright);line-height:1;
-  margin-bottom:0.5rem;
-  transition:text-shadow 0.3s;
-  display:block;
-}
-.stat-num .unit{
-  font-size:0.55em;color:var(--cyan);
-  margin-left:0.1em;
-}
-.stat-label{
-  font-family:var(--font-mono);font-size:0.68rem;
-  color:var(--muted);letter-spacing:0.12em;
-  text-transform:uppercase;
-  display:block;
-}
-.stat-sub{
-  font-size:0.68rem;color:var(--muted);
-  margin-top:0.2rem;opacity:0.7;
-}
-
-/* === MISSIONS (About) === */
-.missions{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-  gap:1.2rem;
-}
-.mission{
-  background:var(--panel);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border:1px solid var(--border);
-  padding:1.6rem;border-radius:4px;
-  position:relative;transition:all 0.3s;
-}
-.mission:hover{
-  border-color:var(--cyan);
-  box-shadow:var(--glow);
-  transform:translateY(-3px);
-}
-/* HUD corners */
-.mission::before, .mission::after{
-  content:'';position:absolute;width:12px;height:12px;
-  border:1px solid var(--cyan);opacity:0;transition:opacity 0.3s;
-}
-.mission::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
-.mission::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
-.mission:hover::before, .mission:hover::after{opacity:1;}
-.mission .icon{
-  width:44px;height:44px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(95,211,255,0.08);
-  border:1px solid var(--border);
-  border-radius:4px;
-  color:var(--cyan);
-  margin-bottom:1rem;
-}
-.mission h3{
-  font-family:var(--font-display);font-weight:700;
-  font-size:1.1rem;margin-bottom:0.6rem;
-  color:var(--text);
-}
-.mission p{
-  color:var(--muted);font-size:0.9rem;
-  line-height:1.55;
-}
-.mission .tags{
-  display:flex;flex-wrap:wrap;gap:0.4rem;
-  margin-top:0.9rem;
-}
-.mission .tags span{
-  font-family:var(--font-mono);font-size:0.65rem;
-  color:var(--cyan);letter-spacing:0.08em;
-  padding:0.2rem 0.5rem;
-  background:rgba(95,211,255,0.06);
-  border:1px solid var(--border);
-  border-radius:2px;
-}
 
 /* === TIMELINE / EXPERIENCE === */
 .timeline{position:relative;padding-left:0;}
@@ -655,6 +536,31 @@ section{
 .edu-year{
   font-family:var(--font-mono);font-size:0.72rem;
   color:var(--muted);margin-top:0.3rem;
+}
+
+/* Compact stats strip under education */
+.edu-stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));
+  gap:1rem 1.6rem;
+  margin-top:1.8rem;
+  padding:1.3rem 1.4rem;
+  border-top:1px dashed var(--border);
+  border-bottom:1px dashed var(--border);
+}
+.es-item{
+  display:flex;flex-direction:column;align-items:flex-start;gap:0.2rem;
+}
+.es-num{
+  font-family:var(--font-display);font-weight:800;
+  font-size:1.3rem;color:var(--cyan-bright);
+  line-height:1;
+}
+.es-u{font-size:0.55em;color:var(--cyan);margin-left:0.1em;}
+.es-lbl{
+  font-family:var(--font-mono);font-size:0.65rem;
+  color:var(--muted);letter-spacing:0.1em;
+  text-transform:uppercase;
 }
 
 /* === FRIENDS === */
@@ -931,7 +837,6 @@ footer{
   .nav-menu{display:block;}
   section{padding:3rem 1.2rem;}
   #hero{padding-top:5rem;}
-  #hud{display:none;}
   .edu-card{grid-template-columns:1fr;text-align:left;}
   .edu-right{text-align:left;}
   .pub-card{flex-direction:column;}
@@ -959,22 +864,14 @@ footer{
 <!-- Hyperspace starfield -->
 <canvas id="stars"></canvas>
 
-<!-- HUD -->
-<div id="hud" aria-hidden="true">
-  <div><span class="hud-label">VISITORS </span><span class="hud-val" id="visitor-count">———</span></div>
-  <div><span class="hud-label">UTC </span><span class="hud-val" id="utc-clock">——:——</span></div>
-  <div><span class="blink">●</span> <span class="hud-val">LINK ACTIVE</span></div>
-</div>
-
 <!-- Nav -->
 <nav>
   <div class="nav-logo">AB // RESEARCH</div>
   <ul class="nav-links" id="nav-links">
-    <li><a href="#stats">Stats</a></li>
-    <li><a href="#about">Missions</a></li>
     <li><a href="#experience">Research</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Arsenal</a></li>
+    <li><a href="#education">Academy</a></li>
     <li><a href="#friends">Alliance</a></li>
     <li><a href="#guestbook">Guestbook</a></li>
     <li><a href="resume.pdf" class="nav-cta" target="_blank" rel="noopener">↓ Resume</a></li>
@@ -984,7 +881,7 @@ footer{
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-chip">TRANSMISSION ONLINE // STATUS: RESEARCHING</div>
+  <div class="hero-chip">A LONG TIME AGO IN A GALAXY FAR, FAR AWAY<span style="letter-spacing:0.08em;">....</span></div>
   <h1><span>Ayushi</span><br>Bhattacharjee</h1>
   <div class="role-row">
     <span class="role">[ Machine Learning Researcher ]</span>
@@ -1022,86 +919,10 @@ footer{
   <div class="scroll-hint">SCROLL</div>
 </section>
 
-<!-- STATS -->
-<section id="stats" class="reveal">
-  <div class="section-head">
-    <span class="tag">// 01 · TELEMETRY</span>
-    <h2>At a Glance</h2>
-    <div class="line"></div>
-  </div>
-  <div class="stats-grid">
-    <div class="stat">
-      <span class="stat-num">9.25<span class="unit">/10</span></span>
-      <span class="stat-label">B.Tech CGPA</span>
-      <div class="stat-sub">till 6th sem</div>
-    </div>
-    <div class="stat">
-      <span class="stat-num">99<span class="unit">%</span></span>
-      <span class="stat-label">Grade 10 · CBSE</span>
-      <div class="stat-sub">AISSE 2021</div>
-    </div>
-    <div class="stat">
-      <span class="stat-num">95.2<span class="unit">%</span></span>
-      <span class="stat-label">Grade 12 · CBSE</span>
-      <div class="stat-sub">AISSCE 2023</div>
-    </div>
-    <div class="stat">
-      <span class="stat-num">97.77<span class="unit">%</span></span>
-      <span class="stat-label">Peak Model Acc.</span>
-      <div class="stat-sub">published · AGC 2026</div>
-    </div>
-    <div class="stat">
-      <span class="stat-num">4M<span class="unit">+</span></span>
-      <span class="stat-label">Reviews Processed</span>
-      <div class="stat-sub">IIT KGP · pipeline</div>
-    </div>
-    <div class="stat">
-      <span class="stat-num">4<span class="unit">×</span></span>
-      <span class="stat-label">Research Labs</span>
-      <div class="stat-sub">IIT · JU · HIT</div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT / MISSIONS -->
-<section id="about" class="reveal">
-  <div class="section-head">
-    <span class="tag">// 02 · MISSIONS</span>
-    <h2>What I Do</h2>
-    <div class="line"></div>
-  </div>
-  <div class="missions">
-    <div class="mission">
-      <div class="icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0H5a2 2 0 0 1-2-2v-4m6 6h10a2 2 0 0 0 2-2v-4M3 9h18M3 15h18"/></svg>
-      </div>
-      <h3>Medical ML Pipelines</h3>
-      <p>End-to-end, leakage-aware pipelines for cancer diagnosis and prognosis — feature selection, interpretability, and benchmarks against FDA-cleared scores.</p>
-      <div class="tags"><span>SHAP</span><span>Random Forest</span><span>Wrapper selection</span></div>
-    </div>
-    <div class="mission">
-      <div class="icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6m11-11h-6m-10 0H1m15.5-6.5l-4.2 4.2m-6.6 6.6l-4.2 4.2m0-15l4.2 4.2m6.6 6.6l4.2 4.2"/></svg>
-      </div>
-      <h3>LLM-based Extraction</h3>
-      <p>Designed client–server systems that extract structured knowledge from millions of records using Llama, Gemma, Qwen and Mistral — BERTScore > 0.90 across the board.</p>
-      <div class="tags"><span>Llama</span><span>Qwen</span><span>vLLM</span><span>FastAPI</span></div>
-    </div>
-    <div class="mission">
-      <div class="icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.07-7.07l-1.41 1.41M6.34 17.66l-1.41 1.41m12.72 0l-1.41-1.41M6.34 6.34L4.93 4.93"/><circle cx="12" cy="12" r="5"/></svg>
-      </div>
-      <h3>Deep Learning Vision</h3>
-      <p>U-Net segmentation for copy–move forgery detection across EfficientNet, ResNet, MultiResUNet and FPN — Dice scores above 0.80 on four major datasets.</p>
-      <div class="tags"><span>PyTorch</span><span>U-Net</span><span>OpenCV</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- RESEARCH / EXPERIENCE -->
 <section id="experience" class="reveal">
   <div class="section-head">
-    <span class="tag">// 03 · HOLOCRON</span>
+    <span class="tag">// 01 · HOLOCRON</span>
     <h2>Research Logs</h2>
     <div class="line"></div>
   </div>
@@ -1181,7 +1002,7 @@ footer{
 <!-- PUBLICATIONS -->
 <section id="publications" class="reveal">
   <div class="section-head">
-    <span class="tag">// 04 · TRANSMISSIONS</span>
+    <span class="tag">// 02 · TRANSMISSIONS</span>
     <h2>Publications</h2>
     <div class="line"></div>
   </div>
@@ -1202,8 +1023,8 @@ footer{
 <!-- PROJECTS -->
 <section id="projects" class="reveal">
   <div class="section-head">
-    <span class="tag">// 05 · SYSTEMS</span>
-    <h2>Shipped</h2>
+    <span class="tag">// 03 · SYSTEMS</span>
+    <h2>Projects</h2>
     <div class="line"></div>
   </div>
   <div class="project-card">
@@ -1230,7 +1051,7 @@ footer{
 <!-- SKILLS -->
 <section id="skills" class="reveal">
   <div class="section-head">
-    <span class="tag">// 06 · ARSENAL</span>
+    <span class="tag">// 04 · ARSENAL</span>
     <h2>Skills</h2>
     <div class="line"></div>
   </div>
@@ -1271,7 +1092,7 @@ footer{
 <!-- EDUCATION -->
 <section id="education" class="reveal">
   <div class="section-head">
-    <span class="tag">// 07 · ACADEMY</span>
+    <span class="tag">// 05 · ACADEMY</span>
     <h2>Education</h2>
     <div class="line"></div>
   </div>
@@ -1310,12 +1131,21 @@ footer{
       </div>
     </div>
   </div>
+
+  <div class="edu-stats">
+    <div class="es-item"><span class="es-num">9.25<span class="es-u">/10</span></span><span class="es-lbl">B.Tech CGPA</span></div>
+    <div class="es-item"><span class="es-num">99<span class="es-u">%</span></span><span class="es-lbl">Grade 10</span></div>
+    <div class="es-item"><span class="es-num">95.2<span class="es-u">%</span></span><span class="es-lbl">Grade 12</span></div>
+    <div class="es-item"><span class="es-num">97.77<span class="es-u">%</span></span><span class="es-lbl">Peak model acc.</span></div>
+    <div class="es-item"><span class="es-num">4M<span class="es-u">+</span></span><span class="es-lbl">Reviews processed</span></div>
+    <div class="es-item"><span class="es-num">4<span class="es-u">×</span></span><span class="es-lbl">Research labs</span></div>
+  </div>
 </section>
 
 <!-- FRIENDS -->
 <section id="friends" class="reveal">
   <div class="section-head">
-    <span class="tag">// 08 · ALLIANCE</span>
+    <span class="tag">// 06 · ALLIANCE</span>
     <h2>Friends &amp; Fellow Rebels</h2>
     <div class="line"></div>
   </div>
@@ -1353,7 +1183,7 @@ footer{
 <!-- GUESTBOOK -->
 <section id="guestbook" class="reveal">
   <div class="section-head">
-    <span class="tag">// 09 · HOLOGRAM LOG</span>
+    <span class="tag">// 07 · HOLOGRAM LOG</span>
     <h2>Guestbook</h2>
     <div class="line"></div>
   </div>
@@ -1383,7 +1213,7 @@ footer{
 <!-- CONTACT -->
 <section id="contact" class="reveal">
   <div class="section-head">
-    <span class="tag">// 10 · OPEN COMMS</span>
+    <span class="tag">// 08 · OPEN COMMS</span>
     <h2>Contact</h2>
     <div class="line"></div>
   </div>
@@ -1439,7 +1269,7 @@ footer{
   <div class="footer-meta">
     <span>© 2026 AYUSHI BHATTACHARJEE</span>
     <span class="dot">◆</span>
-    <span>BUILT WITH HTML · CSS · JS</span>
+    <span>VISITORS <span id="visitor-count">———</span></span>
     <span class="dot">◆</span>
     <span>MAY THE GRADIENTS BE WITH YOU</span>
   </div>
@@ -1520,20 +1350,9 @@ footer{
 })();
 
 /* ============================================================
-   HUD clock + visitor count
+   Visitor count (small, footer)
    ============================================================ */
 (function(){
-  const clock = document.getElementById('utc-clock');
-  function tick(){
-    if (!clock) return;
-    const d = new Date();
-    const hh = String(d.getUTCHours()).padStart(2, '0');
-    const mm = String(d.getUTCMinutes()).padStart(2, '0');
-    const ss = String(d.getUTCSeconds()).padStart(2, '0');
-    clock.textContent = `${hh}:${mm}:${ss}`;
-  }
-  tick(); setInterval(tick, 1000);
-
   const countEl = document.getElementById('visitor-count');
   if (!countEl) return;
 
