@@ -8,30 +8,30 @@
 <title>Ayushi Bhattacharjee // ML Researcher</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@500;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='88' font-family='monospace' fill='%235fd3ff'%3EA%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='88' font-family='Inter,sans-serif' font-weight='800' fill='%23ffe81f'%3EA%3C/text%3E%3C/svg%3E"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
 :root{
-  --bg:#030610;
-  --bg2:#07101c;
-  --panel:rgba(12,22,38,0.55);
-  --panel-solid:#0a1322;
-  --cyan:#5fd3ff;
-  --cyan-bright:#8ee4ff;
-  --cyan-deep:#1a7aa8;
+  --bg:#000000;
+  --bg2:#050508;
+  --panel:rgba(18,18,22,0.55);
+  --panel-solid:#0c0c10;
+  --cyan:#ffe81f;
+  --cyan-bright:#fff277;
+  --cyan-deep:#8a7210;
   --gold:#f5c84b;
   --red:#ff4d5e;
   --green:#4df0a1;
-  --text:#e8f4ff;
-  --muted:#7589a3;
-  --border:rgba(95,211,255,0.18);
-  --border-strong:rgba(95,211,255,0.4);
-  --glow:0 0 24px rgba(95,211,255,0.28);
-  --glow-strong:0 0 36px rgba(95,211,255,0.5);
-  --font-display:'Syne',sans-serif;
-  --font-body:'Space Grotesk',sans-serif;
+  --text:#ececf0;
+  --muted:#7a7a82;
+  --border:rgba(255,232,31,0.14);
+  --border-strong:rgba(255,232,31,0.35);
+  --glow:0 0 20px rgba(255,232,31,0.18);
+  --glow-strong:0 0 30px rgba(255,232,31,0.32);
+  --font-display:'Inter',sans-serif;
+  --font-body:'Inter',sans-serif;
   --font-mono:'JetBrains Mono',monospace;
 }
 
@@ -55,15 +55,15 @@ body{
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:1;
   background:
-    radial-gradient(ellipse at 20% 10%, rgba(95,211,255,0.08), transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(124,77,255,0.06), transparent 50%),
-    linear-gradient(180deg, rgba(3,6,16,0) 0%, rgba(3,6,16,0.4) 100%);
+    radial-gradient(ellipse at 20% 10%, rgba(255,232,31,0.08), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(255,232,31,0.04), transparent 50%),
+    linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
 }
 
 /* subtle scanline overlay */
 body::after{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:2;
-  background:repeating-linear-gradient(0deg, rgba(95,211,255,0.015) 0px, rgba(95,211,255,0.015) 1px, transparent 1px, transparent 3px);
+  background:repeating-linear-gradient(0deg, rgba(255,232,31,0.015) 0px, rgba(255,232,31,0.015) 1px, transparent 1px, transparent 3px);
   mix-blend-mode:screen;opacity:0.5;
 }
 
@@ -78,7 +78,7 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:40;
   display:flex;align-items:center;justify-content:space-between;
   padding:0.9rem 2rem;
-  background:linear-gradient(180deg, rgba(3,6,16,0.92) 0%, rgba(3,6,16,0.6) 100%);
+  background:linear-gradient(180deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 100%);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
   transition:padding 0.3s;
@@ -86,7 +86,7 @@ nav{
 .nav-logo{
   font-family:var(--font-mono);font-size:0.78rem;
   font-weight:700;letter-spacing:0.15em;
-  color:var(--cyan);text-shadow:0 0 10px rgba(95,211,255,0.4);
+  color:var(--cyan);text-shadow:0 0 10px rgba(255,232,31,0.4);
   display:flex;align-items:center;gap:0.6rem;
 }
 .nav-logo::before{
@@ -102,14 +102,14 @@ nav{
   letter-spacing:0.14em;text-transform:uppercase;
   transition:color 0.2s;position:relative;
 }
-.nav-links a:hover{color:var(--cyan);text-shadow:0 0 8px rgba(95,211,255,0.4);}
+.nav-links a:hover{color:var(--cyan);text-shadow:0 0 8px rgba(255,232,31,0.4);}
 .nav-cta{
   color:var(--cyan) !important;
   border:1px solid var(--border-strong);
   padding:0.4rem 0.9rem;border-radius:2px;
   transition:all 0.2s;
 }
-.nav-cta:hover{background:rgba(95,211,255,0.08);box-shadow:var(--glow);}
+.nav-cta:hover{background:rgba(255,232,31,0.08);box-shadow:var(--glow);}
 .nav-menu{display:none;background:none;border:none;color:var(--cyan);font-size:1.4rem;cursor:pointer;}
 
 /* === Sections === */
@@ -133,7 +133,7 @@ section{
   color:var(--cyan);letter-spacing:0.18em;
   padding:0.25rem 0.6rem;
   border:1px solid var(--border);border-radius:2px;
-  background:rgba(95,211,255,0.04);
+  background:rgba(255,232,31,0.04);
 }
 .section-head .line{
   flex:1;height:1px;min-width:40px;
@@ -165,16 +165,15 @@ section{
 }
 #hero h1{
   font-family:var(--font-display);font-weight:800;
-  font-size:clamp(2.8rem, 9vw, 7rem);
-  line-height:0.95;letter-spacing:-0.02em;
-  margin-bottom:1.2rem;
+  font-size:clamp(2.2rem, 6.4vw, 4.6rem);
+  line-height:1;letter-spacing:-0.025em;
+  margin-bottom:1rem;
+  color:var(--text);
   animation:fadeUp 0.8s 0.2s both;
 }
 #hero h1 span{
-  background:linear-gradient(135deg, var(--cyan-bright) 0%, var(--cyan) 60%, var(--cyan-deep) 100%);
-  -webkit-background-clip:text;background-clip:text;
-  color:transparent;
-  filter:drop-shadow(0 0 24px rgba(95,211,255,0.3));
+  color:var(--cyan);
+  filter:drop-shadow(0 0 20px rgba(255,232,31,0.25));
 }
 .role-row{
   display:flex;flex-wrap:wrap;align-items:center;gap:0.8rem 1.2rem;
@@ -216,14 +215,14 @@ section{
   border:1px solid transparent;
 }
 .btn-primary{
-  background:linear-gradient(135deg, rgba(95,211,255,0.15) 0%, rgba(95,211,255,0.05) 100%);
+  background:linear-gradient(135deg, rgba(255,232,31,0.15) 0%, rgba(255,232,31,0.05) 100%);
   color:var(--cyan-bright);
   border-color:var(--cyan);
-  box-shadow:0 0 20px rgba(95,211,255,0.18), inset 0 0 20px rgba(95,211,255,0.08);
+  box-shadow:0 0 20px rgba(255,232,31,0.18), inset 0 0 20px rgba(255,232,31,0.08);
 }
 .btn-primary:hover{
-  background:linear-gradient(135deg, rgba(95,211,255,0.25) 0%, rgba(95,211,255,0.1) 100%);
-  box-shadow:0 0 32px rgba(95,211,255,0.4), inset 0 0 24px rgba(95,211,255,0.14);
+  background:linear-gradient(135deg, rgba(255,232,31,0.25) 0%, rgba(255,232,31,0.1) 100%);
+  box-shadow:0 0 32px rgba(255,232,31,0.4), inset 0 0 24px rgba(255,232,31,0.14);
   transform:translateY(-2px);
 }
 .btn-ghost{
@@ -231,32 +230,31 @@ section{
   border-color:var(--border-strong);
 }
 .btn-ghost:hover{
-  background:rgba(95,211,255,0.06);
+  background:rgba(255,232,31,0.06);
   color:var(--cyan-bright);
   border-color:var(--cyan);
 }
 
-/* Affiliations ticker */
-.aff-strip{
-  display:flex;align-items:center;gap:1.6rem;
-  padding:1rem 0;margin-top:1.2rem;
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  overflow:hidden;
-  font-family:var(--font-mono);font-size:0.72rem;
-  color:var(--muted);letter-spacing:0.18em;
-  text-transform:uppercase;
-  animation:fadeUp 0.8s 0.8s both;
+/* Death Star — subtle hero decoration */
+.death-star{
+  position:absolute;
+  top:5.5rem;right:-90px;
+  width:360px;height:360px;
+  opacity:0.55;pointer-events:none;
+  z-index:5;
+  filter:drop-shadow(0 0 60px rgba(0,0,0,0.6));
+  animation:ds-float 22s ease-in-out infinite;
 }
-.aff-strip .label{color:var(--cyan);}
-.aff-strip .dot{color:var(--cyan-deep);}
-.aff-marquee{
-  display:flex;gap:2.2rem;white-space:nowrap;
-  animation:marquee 32s linear infinite;
-  flex-shrink:0;
+@keyframes ds-float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-14px);}
 }
-.aff-wrapper{overflow:hidden;flex:1;mask-image:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);}
-@keyframes marquee{to{transform:translateX(-50%);}}
+@media (max-width: 960px){
+  .death-star{width:220px;height:220px;top:4.5rem;right:-80px;opacity:0.35;}
+}
+@media (max-width: 600px){
+  .death-star{width:170px;height:170px;opacity:0.25;}
+}
 
 /* Scroll hint */
 .scroll-hint{
@@ -288,7 +286,7 @@ section{
 }
 .exp-card:hover{
   border-left-color:var(--cyan-bright);
-  box-shadow:-6px 0 24px rgba(95,211,255,0.15);
+  box-shadow:-6px 0 24px rgba(255,232,31,0.15);
   transform:translateX(4px);
 }
 .exp-card::before{
@@ -487,13 +485,13 @@ section{
   font-family:var(--font-mono);font-size:0.75rem;
   color:#c9d8e8;
   padding:0.3rem 0.6rem;
-  background:rgba(95,211,255,0.04);
+  background:rgba(255,232,31,0.04);
   border:1px solid var(--border);
   border-radius:2px;
   transition:all 0.2s;
 }
 .skill-tags span:hover{
-  background:rgba(95,211,255,0.1);
+  background:rgba(255,232,31,0.1);
   border-color:var(--cyan);
   color:var(--cyan-bright);
 }
@@ -531,37 +529,13 @@ section{
 .edu-grade{
   font-family:var(--font-display);font-weight:800;
   font-size:1.6rem;color:var(--cyan-bright);
-  line-height:1;text-shadow:0 0 16px rgba(95,211,255,0.3);
+  line-height:1;text-shadow:0 0 16px rgba(255,232,31,0.3);
 }
 .edu-year{
   font-family:var(--font-mono);font-size:0.72rem;
   color:var(--muted);margin-top:0.3rem;
 }
 
-/* Compact stats strip under education */
-.edu-stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));
-  gap:1rem 1.6rem;
-  margin-top:1.8rem;
-  padding:1.3rem 1.4rem;
-  border-top:1px dashed var(--border);
-  border-bottom:1px dashed var(--border);
-}
-.es-item{
-  display:flex;flex-direction:column;align-items:flex-start;gap:0.2rem;
-}
-.es-num{
-  font-family:var(--font-display);font-weight:800;
-  font-size:1.3rem;color:var(--cyan-bright);
-  line-height:1;
-}
-.es-u{font-size:0.55em;color:var(--cyan);margin-left:0.1em;}
-.es-lbl{
-  font-family:var(--font-mono);font-size:0.65rem;
-  color:var(--muted);letter-spacing:0.1em;
-  text-transform:uppercase;
-}
 
 /* === FRIENDS === */
 .friends-grid{
@@ -646,23 +620,23 @@ section{
 }
 .gb-input:focus, .gb-area:focus{
   border-color:var(--cyan);
-  box-shadow:0 0 12px rgba(95,211,255,0.2);
+  box-shadow:0 0 12px rgba(255,232,31,0.2);
 }
 .gb-area{resize:vertical;min-height:80px;line-height:1.5;}
 .gb-btn{
-  background:linear-gradient(135deg, rgba(95,211,255,0.2), rgba(95,211,255,0.08));
+  background:linear-gradient(135deg, rgba(255,232,31,0.2), rgba(255,232,31,0.08));
   color:var(--cyan-bright);
   border:1px solid var(--cyan);
   font-family:var(--font-mono);font-size:0.75rem;
   letter-spacing:0.14em;text-transform:uppercase;
   padding:0.7rem 1.4rem;border-radius:2px;
   cursor:pointer;transition:all 0.25s;
-  box-shadow:0 0 16px rgba(95,211,255,0.15);
+  box-shadow:0 0 16px rgba(255,232,31,0.15);
   white-space:nowrap;
 }
 .gb-btn:hover{
-  background:linear-gradient(135deg, rgba(95,211,255,0.3), rgba(95,211,255,0.15));
-  box-shadow:0 0 24px rgba(95,211,255,0.35);
+  background:linear-gradient(135deg, rgba(255,232,31,0.3), rgba(255,232,31,0.15));
+  box-shadow:0 0 24px rgba(255,232,31,0.35);
 }
 .gb-note{
   font-family:var(--font-mono);font-size:0.65rem;
@@ -730,7 +704,7 @@ section{
 .gb-setup-steps li{margin-bottom:0.35rem;}
 .gb-setup-steps code{
   font-family:var(--font-mono);font-size:0.82em;
-  background:rgba(95,211,255,0.08);color:var(--cyan);
+  background:rgba(255,232,31,0.08);color:var(--cyan);
   padding:0.1rem 0.4rem;border-radius:2px;
 }
 .gb-setup-steps a{color:var(--cyan);text-decoration:underline;text-decoration-color:var(--border-strong);}
@@ -772,7 +746,7 @@ section{
 .contact-card .ico{
   width:38px;height:38px;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  background:rgba(95,211,255,0.08);
+  background:rgba(255,232,31,0.08);
   border:1px solid var(--border);
   border-radius:4px;color:var(--cyan);
 }
@@ -797,7 +771,7 @@ footer{
   font-style:italic;font-size:1rem;
   color:var(--cyan-bright);
   max-width:600px;margin:0 auto 0.8rem;
-  text-shadow:0 0 16px rgba(95,211,255,0.2);
+  text-shadow:0 0 16px rgba(255,232,31,0.2);
 }
 .footer-quote-sub{
   font-family:var(--font-mono);font-size:0.72rem;
@@ -829,7 +803,7 @@ footer{
   nav{padding:0.8rem 1.2rem;}
   .nav-links{display:none;position:absolute;top:100%;right:0;left:0;
     flex-direction:column;align-items:flex-start;gap:0;
-    background:rgba(3,6,16,0.98);backdrop-filter:blur(16px);
+    background:rgba(0,0,0,0.98);backdrop-filter:blur(16px);
     border-bottom:1px solid var(--border);padding:0.6rem 0;}
   .nav-links.open{display:flex;}
   .nav-links li{width:100%;}
@@ -882,11 +856,11 @@ footer{
 <!-- HERO -->
 <section id="hero">
   <div class="hero-chip">A LONG TIME AGO IN A GALAXY FAR, FAR AWAY<span style="letter-spacing:0.08em;">....</span></div>
-  <h1><span>Ayushi</span><br>Bhattacharjee</h1>
+  <h1><span>Ayushi</span> Bhattacharjee</h1>
   <div class="role-row">
-    <span class="role">[ Machine Learning Researcher ]</span>
-    <span class="sep">//</span>
-    <span class="loc">Kolkata · IN</span>
+    <span class="role">Machine Learning Researcher</span>
+    <span class="sep">·</span>
+    <span class="loc">Kolkata, India</span>
   </div>
   <p class="tagline">
     I build ML systems that <em>diagnose cancer</em>, <em>decode privacy</em> at the scale of millions of reviews, and <em>detect forgeries</em> in images — training agents to read the signals most humans miss.
@@ -899,23 +873,28 @@ footer{
     <a href="#experience" class="btn btn-ghost">View Research →</a>
     <a href="#contact" class="btn btn-ghost">Open Comms</a>
   </div>
-  <div class="aff-strip">
-    <span class="label">AFFILIATIONS</span>
-    <div class="aff-wrapper">
-      <div class="aff-marquee">
-        <span>IIT KHARAGPUR</span><span class="dot">◆</span>
-        <span>IIT BHUBANESWAR</span><span class="dot">◆</span>
-        <span>JADAVPUR UNIVERSITY</span><span class="dot">◆</span>
-        <span>HERITAGE INSTITUTE OF TECHNOLOGY</span><span class="dot">◆</span>
-        <span>AGC 2026 · PUBLISHED</span><span class="dot">◆</span>
-        <span>IIT KHARAGPUR</span><span class="dot">◆</span>
-        <span>IIT BHUBANESWAR</span><span class="dot">◆</span>
-        <span>JADAVPUR UNIVERSITY</span><span class="dot">◆</span>
-        <span>HERITAGE INSTITUTE OF TECHNOLOGY</span><span class="dot">◆</span>
-        <span>AGC 2026 · PUBLISHED</span><span class="dot">◆</span>
-      </div>
-    </div>
-  </div>
+  <!-- Death Star -->
+  <svg class="death-star" viewBox="0 0 220 220" aria-hidden="true">
+    <defs>
+      <radialGradient id="dsSphere" cx="35%" cy="32%" r="78%">
+        <stop offset="0%" stop-color="#4a4a52"/>
+        <stop offset="55%" stop-color="#1c1c20"/>
+        <stop offset="100%" stop-color="#050506"/>
+      </radialGradient>
+      <radialGradient id="dsDish" cx="42%" cy="42%" r="60%">
+        <stop offset="0%" stop-color="#2c2c32"/>
+        <stop offset="85%" stop-color="#0a0a0d"/>
+      </radialGradient>
+    </defs>
+    <circle cx="110" cy="110" r="100" fill="url(#dsSphere)" stroke="#3a3a42" stroke-width="0.6"/>
+    <circle cx="76" cy="76" r="24" fill="url(#dsDish)" stroke="#3a3a42" stroke-width="0.6"/>
+    <circle cx="73" cy="73" r="4" fill="#6a6a72"/>
+    <path d="M 12 110 L 208 110" stroke="#2a2a30" stroke-width="0.8"/>
+    <path d="M 20 92 L 200 92" stroke="#242428" stroke-width="0.4" opacity="0.7"/>
+    <path d="M 20 128 L 200 128" stroke="#242428" stroke-width="0.4" opacity="0.7"/>
+    <path d="M 30 70 L 190 70" stroke="#1e1e22" stroke-width="0.3" opacity="0.5"/>
+    <path d="M 30 150 L 190 150" stroke="#1e1e22" stroke-width="0.3" opacity="0.5"/>
+  </svg>
   <div class="scroll-hint">SCROLL</div>
 </section>
 
@@ -1132,21 +1111,13 @@ footer{
     </div>
   </div>
 
-  <div class="edu-stats">
-    <div class="es-item"><span class="es-num">9.25<span class="es-u">/10</span></span><span class="es-lbl">B.Tech CGPA</span></div>
-    <div class="es-item"><span class="es-num">99<span class="es-u">%</span></span><span class="es-lbl">Grade 10</span></div>
-    <div class="es-item"><span class="es-num">95.2<span class="es-u">%</span></span><span class="es-lbl">Grade 12</span></div>
-    <div class="es-item"><span class="es-num">97.77<span class="es-u">%</span></span><span class="es-lbl">Peak model acc.</span></div>
-    <div class="es-item"><span class="es-num">4M<span class="es-u">+</span></span><span class="es-lbl">Reviews processed</span></div>
-    <div class="es-item"><span class="es-num">4<span class="es-u">×</span></span><span class="es-lbl">Research labs</span></div>
-  </div>
 </section>
 
 <!-- FRIENDS -->
 <section id="friends" class="reveal">
   <div class="section-head">
     <span class="tag">// 06 · ALLIANCE</span>
-    <h2>Friends &amp; Fellow Rebels</h2>
+    <h2>Friends</h2>
     <div class="line"></div>
   </div>
   <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1.4rem;max-width:620px;">
@@ -1310,7 +1281,7 @@ footer{
   let targetSpeed = 0.6;
 
   function draw(){
-    ctx.fillStyle = 'rgba(3, 6, 16, 0.3)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
     ctx.fillRect(0, 0, w, h);
     speed += (targetSpeed - speed) * 0.05;
     for (const s of stars){
@@ -1324,7 +1295,7 @@ footer{
       if (sx < 0 || sx > w || sy < 0 || sy > h){ spawn(s); continue; }
       const size = (1 - s.z / w) * 1.6;
       const alpha = Math.min(1, (1 - s.z / w) * 0.9 + 0.1);
-      ctx.strokeStyle = `rgba(150, 220, 255, ${alpha})`;
+      ctx.strokeStyle = `rgba(240, 232, 200, ${alpha})`;
       ctx.lineWidth = size;
       ctx.beginPath();
       ctx.moveTo(px, py);
